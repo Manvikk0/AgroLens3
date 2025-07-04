@@ -2,10 +2,9 @@ workflows:
   android-build:
     name: Android APK Build
     scripts:
-      # move into the android folder, make the wrapper executable, then build
-      - cd android
+      # make sure the wrapper is runnable, then build
       - chmod +x gradlew
       - ./gradlew assembleDebug
     artifacts:
-      # where to find your debug APK
-      - android/app/build/outputs/apk/debug/*.apk
+      # grab your debug APK
+      - app/build/outputs/apk/debug/*.apk
